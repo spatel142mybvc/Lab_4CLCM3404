@@ -1,3 +1,8 @@
 FROM nginx:latest
 EXPOSE 80
-COPY . /usr/share/nginx/html
+ 
+COPY *.html /usr/local/apache2/htdocs/
+RUN mkdir -p /usr/local/apache2/htdocs/css
+RUN mkdir -p /usr/local/apache2/htdocs/images
+COPY ./css/* /usr/local/apache2/htdocs/
+COPY ./images/* /usr/local/apache2/htdocs/images
